@@ -1,12 +1,12 @@
 <template>
     <div :class="classes">
-        <div :class="[prefixCls + '-bar']">
+        <div :class="[prefixCls + '-bar']" >
             <div :class="[prefixCls + '-nav-container']">
                 <div :class="[prefixCls + '-nav-wrap']">
                     <div :class="[prefixCls + '-nav-scroll']">
-                        <div :class="[prefixCls + '-nav']" ref="nav">
+                        <div :class="[prefixCls + '-nav']" ref="nav" :style="navStyle">
                             <div :class="barClasses" :style="barStyle"></div>
-                            <div :class="tabCls(item)" v-for="(item, index) in navList" @click="handleChange(index)">
+                            <div :class="tabCls(item)" v-for="(item, index) in navList" @click="handleChange(index)" :style="tabStyle">
                                 <Icon v-if="item.icon !== ''" :type="item.icon"></Icon>
                                 <Render v-if="item.labelType === 'function'" :render="item.label"></Render>
                                 <template v-else>{{ item.label }}</template>
@@ -56,6 +56,10 @@
             closable: {
                 type: Boolean,
                 default: false
+            },
+            tabsFull:{
+                type:Boolean,
+                default:false
             }
         },
         data () {
@@ -120,6 +124,20 @@
                 }
 
                 return style;
+            },
+            navStyle(){
+                if(this.tabsFull){
+                    return 'width: 100%';
+                }else{
+                    return "";
+                }
+            },
+            tabStyle(){
+                if(this.tabsFull){
+                    return "width: "+(100/this.navList.length)+"%;text-align: center;";
+                }else{
+                    return "";
+                }
             }
         },
         methods: {
