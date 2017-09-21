@@ -1,6 +1,6 @@
 {
-  "name": "iview_docos",
-  "version": "2.3.3",
+  "name": "docos.iview",
+  "version": "2.3.2",
   "title": "iView",
   "description": "A high quality  UI components Library with Vue.js",
   "homepage": "http://www.iviewui.com",
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iview/iview.git"
+    "url": "git+https://github.com/xiehongan123/iview.git"
   },
   "author": "Aresn",
   "license": "MIT",
