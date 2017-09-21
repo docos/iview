@@ -18,6 +18,7 @@
 > This branch is for Vue.js 2.x
 >
 > [HERE](https://github.com/iview/iview/tree/master) is for Vue.js 1.x
+> This is fork from iview and add some feature
 
 ## Docs
 
@@ -48,7 +49,7 @@ You can also use [vue-cli](https://github.com/vuejs/vue-cli).
 
 using npm
 ```
-npm install iview --save
+npm install iview_docos  --save
 ```
 Or using script tag for global use
 ```html
