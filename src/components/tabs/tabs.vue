@@ -129,14 +129,14 @@
                 if(this.tabsFull){
                     return 'width: 100%';
                 }else{
-                    return "";
+                    return '';
                 }
             },
             tabStyle(){
                 if(this.tabsFull){
-                    return "width: "+(100/this.navList.length)+"%;text-align: center;";
+                    return 'width: '+(100/this.navList.length)+'%;text-align: center;';
                 }else{
-                    return "";
+                    return '';
                 }
             }
         },
