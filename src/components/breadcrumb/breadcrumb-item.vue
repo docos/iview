@@ -3,7 +3,10 @@
         <a v-if="href" :class="linkClasses" @click="handleClick">
             <slot></slot>
         </a>
-        <span v-else :class="linkClasses">
+        <a v-else-if="bubbling" @click="clickEmit" >
+            <slot></slot>
+        </a>
+        <span v-else :class="linkClasses" >
             <slot></slot>
         </span>
         <span :class="separatorClasses" v-html="separator" v-if="!showSeparator"></span>
@@ -24,6 +27,10 @@
             replace: {
                 type: Boolean,
                 default: false
+            },
+            bubbling:{
+                type:Boolean,
+                default:false
             }
         },
         data () {
@@ -51,6 +58,9 @@
                 } else {
                     window.location.href = this.href;
                 }
+            },
+            clickEmit(){
+                this.$emit("clickItem")
             }
         }
     };

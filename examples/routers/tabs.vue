@@ -77,7 +77,7 @@
         <!--<TabPane label="标签三" v-if="tab2">标签三的内容</TabPane>-->
     <!--</Tabs>-->
     <div >
-        <Tabs tabsFull=true>
+        <Tabs :tabsFull=true>
             <TabPane label="标签一" name="name1" >
                 <p>标签一的内容标签一的内容标签一的内容标签一的内容标签一的内容标签一的内容</p>
                 <p>标签一的内容</p>
