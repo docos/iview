@@ -63,5 +63,7 @@ module.exports = {
             'vue': 'vue/dist/vue.esm.js',
             '@': resolve('src')
         }
-    }
+    },
+    devtool: "#source-map",
+    watch:true
 };
