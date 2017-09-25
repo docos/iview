@@ -39,5 +39,7 @@ module.exports = merge(webpackBaseConfig, {
             template: path.join(__dirname, '../examples/index.html')
         }),
         new FriendlyErrorsPlugin()
-    ]
+    ],
+    devtool: "#source-map",
+    watch:true
 });
