@@ -102,7 +102,7 @@
 
                 this.$nextTick(() => {
                     this.$el.focus();
-                    this.setMenu(e.y, e.x)
+                    this.setMenu(e.clientY, e.clientX)
                 });
                 e.preventDefault();
             },
