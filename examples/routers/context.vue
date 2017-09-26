@@ -27,7 +27,8 @@
             }
         },
         methods: {
-            openContextMenu(){
+            openContextMenu(event){
+
                 this.$refs.context.openMenu(event)
             },
             handleSelect(value){
