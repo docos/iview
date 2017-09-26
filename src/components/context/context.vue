@@ -78,7 +78,7 @@
             },
 
             closeMenu: function() {
-//                this.viewMenu = false;
+                this.viewMenu = false;
             },
 
             openMenu: function(e) {
