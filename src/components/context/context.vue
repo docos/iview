@@ -42,12 +42,14 @@
 </template>
 <script>
     import Dropdown from './../../components/Dropdown';
+    import Icon from './../../components/Icon';
     export default {
         name: 'context',
         components:{
             Dropdown:Dropdown,
             DropdownMenu:Dropdown.Menu,
-            DropdownItem:Dropdown.Item
+            DropdownItem:Dropdown.Item,
+            Icon:Icon
         },
         data() {
             return {
