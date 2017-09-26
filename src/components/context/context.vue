@@ -1,9 +1,9 @@
 <template>
     <div id="right-click-menu" tabindex="-1"  @blur="closeMenu" :style="{top:top, left:left,display:display}">
-        <Dropdown-menu slot="list" @on-click="handleClick">
+        <DropdownMenu slot="list" @on-click="handleClick">
             <template v-for="item in items">
                 <div class="separator" v-if="item.separator"></div>
-                <Dropdown-item :name="item.name" :bubbling="true" v-else-if="!item.subs">
+                <DropdownItem :name="item.name" :bubbling="true" v-else-if="!item.subs">
                     <template v-if="item.icon">
                         <Icon :type="item.icon"/>
                         <span>{{item.title}}</span>
@@ -11,9 +11,9 @@
                     <template v-if="!item.icon">
                         <span class="noicon">{{item.title}}</span>
                     </template>
-                </Dropdown-item>
+                </DropdownItem>
                 <Dropdown :placement="subItemPlace" @on-click="handleClick" v-else>
-                    <Dropdown-item>
+                    <DropdownItem>
                         <template v-if="item.icon">
                             <Icon :type="item.icon"/>
                             <span>{{item.title}}</span>
@@ -22,9 +22,9 @@
                             <span class="noicon">{{item.title}}</span>
                         </template>
                         <Icon type="ios-arrow-right" style="float: right"></Icon>
-                    </Dropdown-item>
-                    <Dropdown-menu slot="list">
-                        <Dropdown-item v-for="(sub,idx ) in item.subs" :name="sub.name" :key="idx">
+                    </DropdownItem>
+                    <DropdownMenu slot="list">
+                        <DropdownItem v-for="(sub,idx ) in item.subs" :name="sub.name" :key="idx">
                             <template v-if="sub.icon">
                                 <Icon :type="sub.icon"/>
                                 <span>{{sub.title}}</span>
@@ -32,17 +32,23 @@
                             <template v-if="!sub.icon">
                                 <span class="noicon">{{sub.title}}</span>
                             </template>
-                        </Dropdown-item>
-                    </Dropdown-menu>
+                        </DropdownItem>
+                    </DropdownMenu>
                 </Dropdown>
             </template>
-        </Dropdown-menu>
+        </DropdownMenu>
     </div>
 
 </template>
 <script>
+    import Dropdown from './../../components/Dropdown';
     export default {
         name: 'context',
+        components:{
+            Dropdown:Dropdown,
+            DropdownMenu:Dropdown.Menu,
+            DropdownItem:Dropdown.Item
+        },
         data() {
             return {
                 viewMenu: false,
