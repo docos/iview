@@ -19,6 +19,7 @@ import Collapse from './components/collapse';
 import ColorPicker from './components/color-picker';
 import DatePicker from './components/date-picker';
 import Dropdown from './components/dropdown';
+import Context from "./components/context"
 import Form from './components/form';
 import Icon from './components/icon';
 import Input from './components/input';
@@ -75,6 +76,7 @@ const iview = {
     ColorPicker,
     DatePicker,
     Dropdown,
+    Context,
     DropdownItem: Dropdown.Item,
     DropdownMenu: Dropdown.Menu,
     Form,

@@ -21,6 +21,10 @@
             divided: {
                 type: Boolean,
                 default: false
+            },
+            bubbling:{
+                type: Boolean,
+                default: false
             }
         },
         computed: {
@@ -37,6 +41,11 @@
         },
         methods: {
             handleClick () {
+                if(this.bubbling){
+                    this.$parent.$emit('on-click', this.name);
+                    return;
+                }
+
                 const $parent = this.$parent.$parent.$parent;
                 const hasChildren = this.$parent && this.$parent.$options.name === 'Dropdown';
 
