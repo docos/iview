@@ -117,7 +117,7 @@
 <style>
 
     #right-click-menu {
-        background: transparent;
+        background: white;
         border: none !important;
         -webkit-border-radius: 2px;
         border-radius: 2px;
