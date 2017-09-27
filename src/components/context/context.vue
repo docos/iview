@@ -97,14 +97,14 @@
                 this.viewMenu = false;
             },
 
-            openMenu: function (e) {
+            openMenu: function (x,y) {
                 this.viewMenu = true;
 
                 this.$nextTick(() => {
                     this.$el.focus();
-                    this.setMenu(e.clientY, e.clientX)
+                    this.setMenu(y, x)
                 });
-                e.preventDefault();
+//                e.preventDefault();
             },
             handleClick: function (value) {
                 console.info("click ", value);

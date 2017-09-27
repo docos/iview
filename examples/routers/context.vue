@@ -1,5 +1,5 @@
 <template>
-    <div style="border: solid 1px red;width: 100%;height: 1000px;" @contextmenu.prevent="openContextMenu">
+    <div style="border: solid 1px red;width: 100%;height: 1000px;position: absolute;left: 100px;top: 100px;" @contextmenu.prevent="openContextMenu" >
         <Context :items="items" ref="context" @selectItem="handleSelect">
 
         </Context>
@@ -28,8 +28,9 @@
         },
         methods: {
             openContextMenu(event){
-
-                this.$refs.context.openMenu(event)
+                event&&event.preventDefault();
+                event&&event.stopPropagation();
+                this.$refs.context.openMenu(event.x-100,event.y-100)
             },
             handleSelect(value){
                 console.info("select item ",value)
