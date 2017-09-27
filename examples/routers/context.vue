@@ -3,6 +3,7 @@
         <Context :items="items" ref="context" @selectItem="handleSelect">
 
         </Context>
+
     </div>
 
 </template>
@@ -30,7 +31,7 @@
             openContextMenu(event){
                 event&&event.preventDefault();
                 event&&event.stopPropagation();
-                this.$refs.context.openMenu(event.x-100,event.y-100)
+                this.$refs.context.openMenu(event.x,event.y-100)
             },
             handleSelect(value){
                 console.info("select item ",value)
