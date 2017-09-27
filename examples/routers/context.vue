@@ -31,7 +31,7 @@
             openContextMenu(event){
                 event&&event.preventDefault();
                 event&&event.stopPropagation();
-                this.$refs.context.openMenu(event.x-100,event.y-100)
+                this.$refs.context.openMenu(event)
             },
             handleSelect(value){
                 console.info("select item ",value)

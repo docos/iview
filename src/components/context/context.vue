@@ -1,5 +1,6 @@
 <template>
-    <div id="right-click-menu" tabindex="-1"  @blur="closeMenu" :style="{top:top, left:left,display:display}">
+    <div id="right-click-menu" tabindex="-1"  @blur="closeMenu"
+         :style="{top:top, left:left,display:display}" :data-transfer="true" v-transfer-dom>
         <DropdownMenu slot="list" @on-click="handleClick">
             <template v-for="item in items">
                 <div class="separator" v-if="item.separator"></div>
@@ -43,8 +44,10 @@
 <script>
     import Dropdown from './../../components/Dropdown';
     import Icon from './../../components/Icon';
+    import TransferDom from '../../directives/transfer-dom';
     export default {
         name: 'context',
+        directives: { TransferDom },
         components:{
             Dropdown:Dropdown,
             DropdownMenu:Dropdown.Menu,
@@ -97,14 +100,14 @@
                 this.viewMenu = false;
             },
 
-            openMenu: function (x,y) {
+            openMenu: function (e) {
                 this.viewMenu = true;
 
                 this.$nextTick(() => {
                     this.$el.focus();
-                    this.setMenu(y, x)
+                    this.setMenu(e.y, e.x)
                 });
-//                e.preventDefault();
+                e.preventDefault();
             },
             handleClick: function (value) {
                 console.info("click ", value);
