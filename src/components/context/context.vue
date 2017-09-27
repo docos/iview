@@ -129,7 +129,7 @@
         display: block;
         margin: 0;
         padding: 0;
-        position: relative;
+        position: absolute;
         width: 320px;
         z-index: 999999;
         padding-top: 16px;
