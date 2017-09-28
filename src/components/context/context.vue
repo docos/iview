@@ -49,7 +49,7 @@
                 this.$emit('show',this.viewMenu,this.subItemPlace);
             },
 
-            openMenu: function (e) {
+            openContextMenu: function (e) {
                 this.viewMenu = true;
                 let largestWidth = window.innerWidth - this.width*2 - 25;
                 this.subItemPlace = "right-start";

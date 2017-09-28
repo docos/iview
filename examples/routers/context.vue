@@ -73,7 +73,7 @@
         methods: {
             openContextMenu(event) {
                 event && event.preventDefault();
-                this.$refs.context.openMenu(event)
+                this.$refs.context.openContextMenu(event)
             },
             handleClick(value){
                 console.info("select item ", value)
