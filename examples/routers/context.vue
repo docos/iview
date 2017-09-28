@@ -1,8 +1,8 @@
 <template>
-    <div style="border: solid 1px red;width: 100%;height: 1000px;position: absolute;left: 100px;top: 100px;"
+    <div style="border: solid 1px red;width: 1800px;height: 800px;position: absolute;left: 100px;top: 100px;"
          @contextmenu.prevent="openContextMenu">
-        <Context ref="context" :subItemPlace="subItemPlace" >
-            <div >
+        <Context ref="context" :subItemPlace="subItemPlace" @show="showContext" :width="320">
+            <div v-if="isShow">
                 <DropdownMenu slot="list" @on-click="handleClick" class="menu">
                     <template v-for="item in items">
                         <div class="separator" v-if="item.separator"></div>
@@ -41,7 +41,6 @@
                     </template>
                 </DropdownMenu>
             </div>
-
         </Context>
 
     </div>
@@ -68,16 +67,20 @@
                     {icon: "checkmark", name: 6, title: "冰糖葫芦"}
                 ],
                 subItemPlace: "right-start",
+                isShow:false
             }
         },
         methods: {
             openContextMenu(event) {
                 event && event.preventDefault();
-                event && event.stopPropagation();
                 this.$refs.context.openMenu(event)
             },
             handleClick(value){
                 console.info("select item ", value)
+            },
+            showContext(isShow,subItemPalce){
+                this.isShow = isShow;
+                this.subItemPlace = subItemPalce;
             }
         }
     }

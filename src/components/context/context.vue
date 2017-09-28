@@ -1,6 +1,7 @@
 <template>
-    <div id="right-click-menu" tabindex="-1"  @blur="closeMenu"
-         :style="{top:top, left:left,display:display}" :data-transfer="true" v-transfer-dom>
+    <div id="right-click-menu" tabindex="-1"  v-show="viewMenu"  @blur="closeMenu" @click="handleClick"
+         @contextmenu.prevent="disableContext"
+         :style="{top:top, left:left,width:width+'px'}" :data-transfer="true" v-transfer-dom>
         <slot ></slot>
     </div>
 
@@ -22,52 +23,53 @@
             }
         },
         props: {
-        },
-        computed: {
-            display: function () {
-                if(this.viewMenu){
-                    return ""
-                }else{
-                    return "none"
-                }
-            }
+            width:{
+                type:Number,
+                defalut:100
+            },
         },
         methods: {
             setMenu: function (top, left) {
 
                 let largestHeight = window.innerHeight - this.$el.offsetHeight - 25;
                 let largestWidth = window.innerWidth - this.$el.offsetWidth - 25;
-                this.subItemPlace = "right-start";
                 if (top > largestHeight) {
                     top = largestHeight;
                 }
 
                 if (left > largestWidth) {
                     left = largestWidth;
-                    this.subItemPlace = "left-start";
                 }
-
                 this.top = top + 'px';
                 this.left = left + 'px';
             },
 
             closeMenu: function () {
-//                this.viewMenu = false;
+                this.viewMenu = false;
+                this.$emit('show',this.viewMenu,this.subItemPlace);
             },
 
             openMenu: function (e) {
                 this.viewMenu = true;
-
+                let largestWidth = window.innerWidth - this.width*2 - 25;
+                this.subItemPlace = "right-start";
+                if (e.x > largestWidth) {
+                    this.subItemPlace = "left-start";
+                }
+                this.$emit('show',this.viewMenu,this.subItemPlace);
                 this.$nextTick(() => {
                     this.$el.focus();
                     this.setMenu(e.y, e.x)
                 });
                 e.preventDefault();
             },
-            handleClick: function (value) {
-                console.info("click ", value);
+            handleClick: function (event) {
                 this.viewMenu = false;
-                this.$emit("selectItem",value)
+                this.$emit('show',this.viewMenu,this.subItemPlace);
+                event && event.preventDefault();
+            },
+            disableContext:function(event){
+                event && event.preventDefault();
             }
         }
     }
@@ -88,7 +90,6 @@
         margin: 0;
         padding: 0;
         position: absolute;
-        width: 320px;
         z-index: 999999;
         padding-top: 16px;
         padding-bottom: 16px;
