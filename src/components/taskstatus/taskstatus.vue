@@ -10,7 +10,7 @@
                 </Tooltip>
                 <Tooltip content="关闭" placement="bottom" class="close">
                     <Button  type="dashed" shape="circle" icon="close-round" size="small"
-                             style="border:none;" @click="close">
+                             style="border:none;color:white;" @click="close">
                     </Button>
                 </Tooltip>
             </div>
