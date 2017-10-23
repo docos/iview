@@ -1,0 +1,71 @@
+@taskstatus-prefix-cls: ~"@{css-prefix}taskstatus";
+
+.@{taskstatus-prefix-cls}{
+  -webkit-box-shadow: 0 2px 8px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,.2);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transform: translate3d(0,24px,0);
+  transform: translate3d(0,24px,0);
+  -webkit-transition: transform .15s cubic-bezier(0.4,0.0,1,1),opacity .15s cubic-bezier(0.4,0.0,1,1),visibility 0ms linear .15s;
+  transition: transform .15s cubic-bezier(0.4,0.0,1,1),opacity .15s cubic-bezier(0.4,0.0,1,1),visibility 0ms linear .15s;
+  background-color: @background-color-base;
+  border-radius: 3px;
+  border: 1px solid @border-color-base;
+
+  & > &-item{
+    border-top: 1px solid @border-color-base;
+    &:first-child {
+      border-top: 0;
+    }
+
+    > .@{taskstatus-prefix-cls}-header{
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      background-color: #323232;
+      border: 1px transparent solid;
+      color: #fff;
+      font-size: 14px;
+      height: 52px;
+      cursor: pointer;
+      position: relative;
+      .transfer{
+        position: absolute;
+        right: 72px;
+      }
+      .close{
+        position: absolute;
+        right: 24px;
+      }
+      div > Button > i{
+        transition: transform @transition-time @ease-in-out;
+
+      }
+    }
+  }
+  &  > &-item&-item-active > &-header  .transfer > div > Button >i {
+    transform: rotate(90deg);
+  }
+
+  &-content{
+    //display: none;
+    overflow: hidden;
+    color: @text-color;
+    padding: 0 16px;
+    background-color: #fff;
+
+    & > &-box {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+  }
+  &-item-active > &-content{
+    //display: block;
+  }
+  &-item:last-child {
+    > .@{taskstatus-prefix-cls}-content {
+      border-radius: 0 0 3px 3px;
+    }
+  }
+}

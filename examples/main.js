@@ -196,6 +196,10 @@ const router = new VueRouter({
         {
             path: '/auto-complete',
             component: require('./routers/auto-complete.vue')
+        },
+        {
+            path: '/taskStatus',
+            component: require('./routers/taskStatus.vue')
         }
     ]
 });

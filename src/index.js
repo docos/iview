@@ -41,6 +41,7 @@ import Switch from './components/switch';
 import Table from './components/table';
 import Tabs from './components/tabs';
 import Tag from './components/tag';
+import TaskStatus from './components/TaskStatus';
 import Timeline from './components/timeline';
 import TimePicker from './components/time-picker';
 import Tooltip from './components/tooltip';
@@ -120,6 +121,7 @@ const iview = {
     Tabs: Tabs,
     TabPane: Tabs.Pane,
     Tag,
+    TaskStatus,
     Timeline,
     TimelineItem: Timeline.Item,
     TimePicker,
