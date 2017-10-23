@@ -26,12 +26,14 @@
 </template>
 <script>
     import Icon from '../icon/icon.vue';
+    import Tooltip from '../tooltip/tooltip.vue'
+    import Button from '../button/button.vue';
     import CollapseTransition from '../base/collapse-transition';
     const prefixCls = 'ivu-taskstatus';
 
     export default {
         name: 'taskstatus',
-        components: { Icon, CollapseTransition },
+        components: { Icon, CollapseTransition,Tooltip,Button },
         props: {
             name: {
                 type: String
