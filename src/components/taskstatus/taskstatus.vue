@@ -5,7 +5,7 @@
                 <div :class="headerClasses" >
                     <slot name="title"></slot>
                     <Tooltip :content="statusTitle" placement="bottom" class="transfer">
-                        <i-button  type="dashed" shape="circle" icon="chevron-right"
+                        <i-button  type="dashed" shape="circle" icon="chevron-up"
                                  size="small" style="border:none;color:white;" @click="toggle">
                         </i-button>
                     </Tooltip>
