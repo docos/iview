@@ -200,6 +200,10 @@ const router = new VueRouter({
         {
             path: '/taskStatus',
             component: require('./routers/taskStatus.vue')
+        },
+        {
+            path: '/icon',
+            component: require('./routers/icon.vue')
         }
     ]
 });
