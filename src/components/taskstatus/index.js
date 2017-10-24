@@ -1,2 +1,2 @@
-import TaskStatus from './taskstatus.vue';
-export default TaskStatus;
+import taskstatus from './taskstatus.vue';
+export default taskstatus;
