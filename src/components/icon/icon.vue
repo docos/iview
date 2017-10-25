@@ -1,5 +1,5 @@
 <template>
-    <i :class="classes" :style="styles" @mouseover="hover" @mouseleave="blur"></i>
+    <i :class="classes" :style="styles" @mouseover="hover" @mouseleave="blur" @click="click"></i>
 </template>
 <script>
     const prefixCls = 'ivu-icon';
@@ -52,6 +52,9 @@
                     return;
                 }
                 this.focused = false;
+            },
+            click(){
+                this.$emit("click")
             }
         }
     };
