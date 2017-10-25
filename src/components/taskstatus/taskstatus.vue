@@ -6,7 +6,7 @@
                     <slot name="title"></slot>
                     <Tooltip :content="statusTitle" placement="bottom" class="transfer">
                         <i-button  type="dashed" shape="circle" icon="chevron-up"
-                                 size="small" style="border:none;color:white;" @click="toggle">
+                                 size="small" style="border:none;color:white;" @click="toggle()">
                         </i-button>
                     </Tooltip>
                     <Tooltip content="关闭" placement="bottom" class="close">
@@ -76,8 +76,12 @@
             }
         },
         methods: {
-            toggle () {
-                this.isActive = !this.isActive;
+            toggle (val) {
+                if(val==undefined){
+                    this.isActive = !this.isActive;
+                }else{
+                    this.isActive = val;
+                }
                 this.$emit('openDetail', this.isActive);
             },
             close(){
