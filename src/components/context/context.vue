@@ -17,10 +17,10 @@
         data() {
             return {
                 viewMenu: false,
-                subItemPlace: "right-start",
+                subItemPlace: 'right-start',
                 top: '0px',
                 left: '0px'
-            }
+            };
         },
         props: {
             width:{
@@ -52,14 +52,14 @@
             openContextMenu: function (e) {
                 this.viewMenu = true;
                 let largestWidth = window.innerWidth - this.width*2 - 25;
-                this.subItemPlace = "right-start";
+                this.subItemPlace = 'right-start';
                 if (e.x > largestWidth) {
-                    this.subItemPlace = "left-start";
+                    this.subItemPlace = 'left-start';
                 }
                 this.$emit('show',this.viewMenu,this.subItemPlace);
                 this.$nextTick(() => {
                     this.$el.focus();
-                    this.setMenu(e.y, e.x)
+                    this.setMenu(e.y, e.x);
                 });
                 e.preventDefault();
             },
@@ -72,7 +72,7 @@
                 event && event.preventDefault();
             }
         }
-    }
+    };
 </script>
 <style>
 

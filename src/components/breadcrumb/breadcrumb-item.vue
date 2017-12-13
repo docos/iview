@@ -1,6 +1,6 @@
 <template>
     <span>
-        <a v-if="href" :class="linkClasses" @click="handleClick">
+        <a v-if="to || href" :class="linkClasses" @click="handleClick">
             <slot></slot>
         </a>
         <a v-else-if="bubbling" @click="clickEmit" >
@@ -16,13 +16,17 @@
     </span>
 </template>
 <script>
+    // todo 3.0 时废弃 href
     const prefixCls = 'ivu-breadcrumb-item';
 
     export default {
         name: 'BreadcrumbItem',
         props: {
             href: {
-                type: String
+                type: [Object, String]
+            },
+            to: {
+                type: [Object, String]
             },
             replace: {
                 type: Boolean,
@@ -54,13 +58,13 @@
             handleClick () {
                 const isRoute = this.$router;
                 if (isRoute) {
-                    this.replace ? this.$router.replace(this.href) : this.$router.push(this.href);
+                    this.replace ? this.$router.replace(this.to || this.href) : this.$router.push(this.to || this.href);
                 } else {
-                    window.location.href = this.href;
+                    window.location.href = this.to || this.href;
                 }
             },
             clickEmit(){
-                this.$emit("clickItem")
+                this.$emit('clickItem');
             }
         }
     };
