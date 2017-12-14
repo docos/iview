@@ -65,7 +65,7 @@
     const prefixCls = 'ivu-input';
 
     export default {
-        name: 'Input',
+        name: 'iInput',
         mixins: [ Emitter ],
         props: {
             type: {

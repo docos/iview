@@ -12,7 +12,7 @@
     const prefixCls = 'ivu-btn';
 
     export default {
-        name: 'Button',
+        name: 'iButton',
         components: { Icon },
         props: {
             type: {
