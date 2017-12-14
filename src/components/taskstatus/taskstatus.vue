@@ -27,7 +27,7 @@
 </template>
 <script>
     import Icon from '../icon/icon.vue';
-    import Tooltip from '../tooltip/tooltip.vue'
+    import Tooltip from '../tooltip/tooltip.vue';
     import iButton from '../button/button.vue';
     import TransferDom from '../../directives/transfer-dom';
     import CollapseTransition from '../base/collapse-transition';
@@ -69,9 +69,9 @@
             },
             statusTitle(){
                 if(this.isActive){
-                    return "最小化"
+                    return '最小化';
                 }else{
-                    return "最大化"
+                    return '最大化';
                 }
             }
         },

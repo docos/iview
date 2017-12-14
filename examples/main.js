@@ -204,6 +204,10 @@ const router = new VueRouter({
         {
             path: '/icon',
             component: require('./routers/icon.vue')
+        },
+        {
+            path: '/scroll',
+            component: require('./routers/scroll.vue')
         }
     ]
 });

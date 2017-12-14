@@ -15,7 +15,7 @@
         data(){
             return {
                 focused:false,
-            }
+            };
         },
         computed: {
             classes () {
@@ -54,7 +54,7 @@
                 this.focused = false;
             },
             click(){
-                this.$emit("click")
+                this.$emit('click');
             }
         }
     };
