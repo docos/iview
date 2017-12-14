@@ -8,7 +8,7 @@
     const prefixCls = 'ivu-menu';
 
     export default {
-        name: 'Menu',
+        name: 'iMenu',
         mixins: [ Emitter ],
         props: {
             mode: {
