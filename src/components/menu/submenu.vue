@@ -46,7 +46,7 @@
                 active: false,
                 opened: false,
                 dropWidth: parseFloat(getStyle(this.$el, 'width')),
-                parent: findComponentUpward(this, 'Menu')
+                parent: findComponentUpward(this, 'iMenu')||findComponentUpward(this, 'Menu')
             };
         },
         computed: {
