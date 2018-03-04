@@ -1,5 +1,5 @@
 <template>
-    <span :class="classes">
+    <span :class="classes" @click="changeAvatar">
         <img :src="src" v-if="src">
         <Icon :type="icon" v-else-if="icon"></Icon>
         <span ref="children" :class="[prefixCls + '-string']" :style="childrenStyle" v-else><slot></slot></span>
@@ -81,6 +81,9 @@
                         this.scale = 1;
                     }
                 }
+            },
+            changeAvatar(){
+                this.$emit("changeAvatar")
             }
         },
         mounted () {

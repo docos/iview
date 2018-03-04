@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Avatar icon="person" size="large" style="background-color: #fde3cf;color: #f56a00"></Avatar>
+        <Avatar icon="person" size="large" style="background-color: #fde3cf;color: #f56a00" @changeAvatar="changeAvatar"></Avatar>
         <Avatar icon="person"></Avatar>
         <Avatar icon="person" size="small"></Avatar>
         <Avatar icon="person" size="large" shape="square"></Avatar>
@@ -75,6 +75,9 @@
         methods: {
             change () {
                 this.name = 'Tomserm'
+            },
+            changeAvatar(){
+                console.info('changeAvatar')
             }
         }
     }
