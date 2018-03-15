@@ -57,7 +57,7 @@
     .hover:hover{
         background-color: gold;
     }
-    .dragging{
+    .dragenter{
         background-color: gold;
     }
 </style>

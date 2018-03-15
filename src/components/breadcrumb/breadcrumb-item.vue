@@ -1,5 +1,6 @@
 <template>
-    <div @dragenter="dragenter" @dragleave="dragleave" @drop ="drop" @dragover="dragover">
+    <div @dragenter="dragenter" @dragleave="dragleave" @drop ="drop" @dragover="dragover"
+         :class="{dragenter:dragging}">
         <a v-if="to || href" :class="linkClasses" @click="handleClick">
             <slot></slot>
         </a>
@@ -40,7 +41,8 @@
         data () {
             return {
                 separator: '',
-                showSeparator: false
+                showSeparator: false,
+                dragging:false,
             };
         },
         computed: {
@@ -69,21 +71,22 @@
             dragover(event){
                 if(event.stopPropagation) event.stopPropagation();
                 if(event.preventDefault) event.preventDefault();
-                this.$emit("dragging",true)
+                this.dragging = true;
             },
             dragenter() {
                 if(event.stopPropagation) event.stopPropagation();
                 if(event.preventDefault) event.preventDefault();
-                this.$emit("dragging",true)
+                this.dragging = true;
             },
             dragleave(event) {
                 if(event.stopPropagation) event.stopPropagation();
                 if(event.preventDefault) event.preventDefault();
-                this.$emit("dragging",false)
+                this.dragging = false;
             },
             drop(event){
                 if(event.stopPropagation) event.stopPropagation();
                 if(event.preventDefault) event.preventDefault();
+                this.dragging = false;
                 if(!this.selected){
                     this.$emit("drop")
                 }
