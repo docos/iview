@@ -1,5 +1,5 @@
 <template>
-    <div @dragenter.prevent="dragenter" @dragleave.prevent="dragleave" @drop.prevent ="drop" @dragover.prevent="dragover">
+    <div @dragenter="dragenter" @dragleave="dragleave" @drop ="drop" @dragover="dragover">
         <a v-if="to || href" :class="linkClasses" @click="handleClick">
             <slot></slot>
         </a>
