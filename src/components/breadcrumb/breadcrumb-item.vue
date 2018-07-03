@@ -1,5 +1,6 @@
 <template>
-    <span>
+    <div @dragenter="dragenter" @dragleave="dragleave" @drop ="drop" @dragover="dragover"
+         :class="{dragenter:dragging}">
         <a v-if="to || href" :class="linkClasses" @click="handleClick">
             <slot></slot>
         </a>
@@ -13,7 +14,7 @@
         <span :class="separatorClasses" v-else>
             <slot name="separator"></slot>
         </span>
-    </span>
+    </div>
 </template>
 <script>
     // todo 3.0 时废弃 href
@@ -40,7 +41,8 @@
         data () {
             return {
                 separator: '',
-                showSeparator: false
+                showSeparator: false,
+                dragging:false,
             };
         },
         computed: {
@@ -65,6 +67,30 @@
             },
             clickEmit(){
                 this.$emit('clickItem');
+            },
+            dragover(event){
+                if(event.stopPropagation) event.stopPropagation();
+                if(event.preventDefault) event.preventDefault();
+                this.dragging = true;
+            },
+            dragenter() {
+                if(event.stopPropagation) event.stopPropagation();
+                if(event.preventDefault) event.preventDefault();
+                this.dragging = true;
+            },
+            dragleave(event) {
+                if(event.stopPropagation) event.stopPropagation();
+                if(event.preventDefault) event.preventDefault();
+                this.dragging = false;
+            },
+            drop(event){
+                if(event.stopPropagation) event.stopPropagation();
+                if(event.preventDefault) event.preventDefault();
+                this.dragging = false;
+                if(!this.selected){
+                    this.$emit("drop")
+                }
+
             }
         }
     };
