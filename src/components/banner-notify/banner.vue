@@ -38,10 +38,6 @@
             showIcon: {
                 type: Boolean,
                 default: false
-            },
-            banner: {
-                type: Boolean,
-                default: false
             }
         },
         data () {
