@@ -9,6 +9,7 @@ import Avatar from './components/avatar';
 import BackTop from './components/back-top';
 import Badge from './components/badge';
 import Breadcrumb from './components/breadcrumb';
+import BannerNotify from './components/banner-notify';
 import Button from './components/button';
 import Card from './components/card';
 import Carousel from './components/carousel';
@@ -64,6 +65,7 @@ const components = {
     BreadcrumbItem: Breadcrumb.Item,
     Button,
     ButtonGroup: Button.Group,
+    BannerNotify,
     Card,
     Carousel,
     CarouselItem: Carousel.Item,
