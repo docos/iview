@@ -98,6 +98,9 @@
             },
             click(e){
                 this.$emit('click',e);
+            },
+            open(){
+                this.closed = false;
             }
         },
         mounted () {
