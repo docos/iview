@@ -1,7 +1,7 @@
 <template>
     <div>
-        <BannerNotify show-icon banner closable @click="click">消息提示文案</BannerNotify>
-        <BannerNotify type="success" show-icon>成功提示文案</BannerNotify>
+        <BannerNotify show-icon banner closable @click="click" :closed="closed" @close="close">消息提示文案</BannerNotify>
+        <BannerNotify type="success" show-icon @click="click" :closed="closed" @close="close">成功提示文案</BannerNotify>
         <BannerNotify type="warning" show-icon banner>警告提示文案</BannerNotify>
         <BannerNotify type="error" show-icon>错误提示文案</BannerNotify>
         <BannerNotify show-icon>
@@ -38,9 +38,17 @@
             BannerNotify
             ,Icon
         },
+        data(){
+            return {
+                closed:false,
+            }
+        },
         methods:{
             click(){
                 console.info("click")
+            },
+            close(){
+                this.closed = true;
             }
         }
     };
