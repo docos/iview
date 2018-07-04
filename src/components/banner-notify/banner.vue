@@ -25,6 +25,10 @@
         name: 'bannerNofity',
         components: { Icon },
         props: {
+            closed:{
+                type: Boolean,
+                default: false
+            },
             type: {
                 validator (value) {
                     return oneOf(value, ['success', 'info', 'warning', 'error']);
@@ -42,7 +46,6 @@
         },
         data () {
             return {
-                closed: false,
                 desc: false
             };
         },
@@ -89,14 +92,10 @@
         },
         methods: {
             close (e) {
-                this.closed = true;
-                this.$emit('on-close', e);
+                this.$emit('close', e);
             },
             click(e){
                 this.$emit('click',e);
-            },
-            open(){
-                this.closed = false;
             }
         },
         mounted () {
