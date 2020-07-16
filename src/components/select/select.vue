@@ -265,6 +265,7 @@
                     return false;
                 }
                 this.visible = !this.visible;
+                this.$emit("on-open-change",this.visible)
             },
             hideMenu () {
                 this.visible = false;
