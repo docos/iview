@@ -28,7 +28,8 @@
                 @focus="handleFocus"
                 @blur="handleBlur"
                 @input="handleInput"
-                @change="handleChange">
+                @change="handleChange"
+                @click="handleClick">
             <div :class="[prefixCls + '-group-append']" v-if="append" v-show="slotReady"><slot name="append"></slot></div>
         </template>
         <textarea
@@ -244,6 +245,9 @@
                 } else {
                     this.$refs.input.blur();
                 }
+            },
+            handleClick (){
+                this.focus();
             }
         },
         watch: {
