@@ -2,7 +2,7 @@
     <div :class="wrapClasses">
         <template v-if="type !== 'textarea'">
             <div :class="[prefixCls + '-group-prepend']" v-if="prepend" v-show="slotReady"><slot name="prepend"></slot></div>
-            <i class="ivu-icon" :class="['ivu-icon-' + icon, prefixCls + '-icon', prefixCls + '-icon-normal']" v-if="icon" @click="handleIconClick"></i>
+            <i class="ivu-icon" :class="['ivu-icon-' + icon, prefixCls + '-icon', prefixCls + '-icon-normal']" v-if="icon" @click.stop="handleIconClick"></i>
             <transition name="fade">
                 <i class="ivu-icon ivu-icon-load-c ivu-load-loop" :class="[prefixCls + '-icon', prefixCls + '-icon-validate']" v-if="!icon"></i>
             </transition>
@@ -29,7 +29,7 @@
                 @blur="handleBlur"
                 @input="handleInput"
                 @change="handleChange"
-                @click="handleClick">
+                @click.stop="handleClick">
             <div :class="[prefixCls + '-group-append']" v-if="append" v-show="slotReady"><slot name="append"></slot></div>
         </template>
         <textarea
@@ -54,7 +54,8 @@
             @keydown="handleKeydown"
             @focus="handleFocus"
             @blur="handleBlur"
-            @input="handleInput">
+            @input="handleInput"
+            @click.stop="handleClick">
         </textarea>
     </div>
 </template>
@@ -248,6 +249,7 @@
             },
             handleClick (){
                 this.focus();
+                this.$emit('on-input-click', event);
             }
         },
         watch: {
