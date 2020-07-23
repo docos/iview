@@ -685,6 +685,7 @@
             this.$on('remove', this.debouncedAppendRemove());
 
             this.$on('on-select-selected', (value) => {
+                this.$emit('on-change-anyway', value);
                 if (this.model === value) {
                     if (this.autoComplete) this.$emit('on-change', value);
                     this.hideMenu();
